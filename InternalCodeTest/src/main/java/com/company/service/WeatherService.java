@@ -113,6 +113,8 @@ public class WeatherService {
 		JsonNode actualObj = mapper.readTree(parser1);
 
 		String cit = actualObj.get("location").get("city").toString();
+		String e = actualObj.path("location").path("city").toString();
+
 		String weath = actualObj.get("current_observation").get("condition").get("text").toString();
 		String temp = actualObj.get("current_observation").get("condition").get("temperature").toString();
 
@@ -197,45 +199,42 @@ public class WeatherService {
 
 		JsonNode actualObj = mapper.readTree(parser1);
 
+		String e = actualObj.path("location").path("city").toString();
+
 		WeatherInfo2 w = new WeatherInfo2();
+		w.setCity(e);
 
-		String cit = actualObj.get("location").get("city").toString();
-		
 		JsonNode details = actualObj.get("forecasts");
-		        
-		
-		Iterator<JsonNode> slaidsIterator = details.elements();
-		while (slaidsIterator.hasNext()) {
-		    JsonNode slaidNode = slaidsIterator.next();
-		   
-		    
 
-	
-			    
-		
-	
-	}
+		Iterator<JsonNode> slaidsIterator = details.elements();
+
+		while (slaidsIterator.hasNext()) {
+			JsonNode slaidNode = slaidsIterator.next();
+
+			System.out.println(slaidNode);
+
+		}
 		return w;
-		
-		
+
 	}
 
 }
-	/*
-	 * Set<String> fields = new HashSet<>();
-	 * 
-	 * 
-	 * 
-	 * fields.add("cityName"); fields.add("weatherCondition");
-	 * fields.add("Temparature");
-	 * 
-	 * 
-	 * fields.add("chill"); fields.add("visibility"); fields.add("pressure");
-	 * 
-	 * FilterProvider filterProvider = new
-	 * SimpleFilterProvider().addFilter("weatherfilter",
-	 * SimpleBeanPropertyFilter.filterOutAllExcept(fields));
-	 * 
-	 * MappingJacksonValue v = new MappingJacksonValue(w);
-	 * v.setFilters(filterProvider);
-	 */
+/*
+ * Set<String> fields = new HashSet<>();
+ * 
+ * 
+ * 
+ * fields.add("cityName"); fields.add("weatherCondition");
+ * fields.add("Temparature");
+ * 
+ * 
+ * fields.add("chill"); fields.add("visibility"); fields.add("pressure");
+ * 
+ * FilterProvider filterProvider = new
+ * SimpleFilterProvider().addFilter("weatherfilter",
+ * SimpleBeanPropertyFilter.filterOutAllExcept(fields));
+ * 
+ * MappingJacksonValue v = new MappingJacksonValue(w);
+ * v.setFilters(filterProvider);
+ */
+/* String cit = actualObj.get("location").get("city").toString(); */

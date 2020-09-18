@@ -8,59 +8,56 @@ public class WeatherInfo2 {
 	
 	private String city;
 	
-	private List<JsonNode> date;
+	private String date;
 	
-	private List<JsonNode> weather;
-	
+	private String text;
 
 	public WeatherInfo2() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public WeatherInfo2(String city, List<JsonNode> date, List<JsonNode> weather) {
+	public WeatherInfo2(String city, String date, String text) {
 		super();
 		this.city = city;
 		this.date = date;
-		this.weather = weather;
+		this.text = text;
 	}
-
+	
+	
 
 	public String getCity() {
 		return city;
 	}
 
-
 	public void setCity(String city) {
 		this.city = city;
 	}
 
-
-	public List<JsonNode> getDate() {
+	public String getDate() {
 		return date;
 	}
 
-
-	public void setDate(List<JsonNode> date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-
-	public List<JsonNode> getWeather() {
-		return weather;
+	public String getText() {
+		return text;
 	}
 
-
-	public void setWeather(List<JsonNode> weather) {
-		this.weather = weather;
+	public void setText(String text) {
+		this.text = text;
 	}
-
 
 	@Override
 	public String toString() {
-		return "WeatherInfo2 [city=" + city + ", date=" + date + ", weather=" + weather + "]";
+		return "WeatherInfo2 [city=" + city + ", date=" + date + ", text=" + text + "]";
 	}
+
+
+
+	
 
 	
 }
